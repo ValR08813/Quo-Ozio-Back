@@ -1,0 +1,22 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "Développer une solution technique permettant à un utilisateur d'envoyer un message sur différents réseaux sociaux.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ValR08813/Quo-Ozio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ValR08813/Quo-Ozio/issues"
+  },
+  "homepage": "https://github.com/ValR08813/Quo-Ozio#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  }
+}

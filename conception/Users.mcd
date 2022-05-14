@@ -1,0 +1,5 @@
+MESSAGE: content, date
+SENT, 0N USER, 11 MESSAGE
+
+:
+USER: firstname, lastname, pseudo, mail, password

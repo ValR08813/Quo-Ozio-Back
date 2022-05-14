@@ -1,0 +1,8 @@
+-- Verify koesio:init on pg
+
+BEGIN;
+
+SELECT * FROM "MESSAGE" WHERE FALSE;
+SELECT * FROM "USER" WHERE FALSE;
+
+ROLLBACK;
