@@ -1,0 +1,36 @@
+@host=http://localhost:5050
+@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjo1LCJpYXQiOjE2NTI1Mjk5NjUsImV4cCI6MTY1MjU1MTU2NX0.W6ah1AAIp4MDxEaraENlZPkaaq1738hHunycV1YqUqg
+Authorization:{{token}}
+Content-Type: application/json
+
+
+### get all users
+GET {{host}}/users
+
+### get 1 user from id
+GET {{host}}/user/1
+
+### ajouter un user
+POST {{host}}/signup
+Content-Type: application/json
+
+{
+    "mail": "bobby@mail.com",
+    "lastname": "lose",
+    "firstname": "bob",
+    "pseudo": "losybob",
+    "password":"losybob12",
+    "password_confirmation": "losybob12"
+     }
+
+###se connecter
+POST {{host}}/login
+Content-Type: application/json
+
+{
+        "mail": "bobby@mail.com",
+        "lastname": "",
+        "firstname": "",
+        "pseudo": "",
+        "password": "losybob12"
+    }
