@@ -60,7 +60,8 @@ module.exports = {
     getUserInfos: async (request, response) => {
         try {
 
-            const id = request.userId;
+            const id = request.params.id;
+            console.log('id', id)
             const user = await User.findOne(id);
 
             response.json(user);
