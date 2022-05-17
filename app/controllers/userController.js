@@ -5,6 +5,10 @@ const User = require('../models/userModel')
 
 module.exports = {
 
+    displayLogin: (request, response) => {
+        response.render('login');
+    },
+
     findAll: async (_, response) => {
 
         try {

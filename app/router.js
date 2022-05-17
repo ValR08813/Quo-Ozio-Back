@@ -18,6 +18,12 @@ router.post('/signup', userController.validSignup);
 
 router.post('/login', userController.validLogin);
 
+router.patch('/user', authentification, userController.updateUser);
+
+
+router.delete('/user', authentification, userController.deleteUser);
+
+
 
 
 

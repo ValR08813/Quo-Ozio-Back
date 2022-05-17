@@ -1,5 +1,5 @@
 @host=http://localhost:5050
-@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjo1LCJpYXQiOjE2NTI1Mjk5NjUsImV4cCI6MTY1MjU1MTU2NX0.W6ah1AAIp4MDxEaraENlZPkaaq1738hHunycV1YqUqg
+@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjo3LCJpYXQiOjE2NTI4MjA2NjIsImV4cCI6MTY1Mjg0MjI2Mn0.F3e4xwrSWX9FNFmbMhHExnntRJtfbBtRqUaYjURQ0dU
 Authorization:{{token}}
 Content-Type: application/json
 
@@ -32,5 +32,35 @@ Content-Type: application/json
         "lastname": "",
         "firstname": "",
         "pseudo": "",
-        "password": "losybob12"
+        "password": "losybob124"
     }
+
+### update user
+PATCH {{host}}/user
+Authorization:{{token}}
+Content-Type: application/json
+
+{
+  "mail": "bobby@mail.com",
+    "lastname": "lose",
+    "firstname": "bob",
+    "pseudo": "losybob",
+    "password":"losybob124",
+    "password_confirmation": "losybob124"
+}
+
+### supprimer son compte
+DELETE {{host}}/user
+Authorization:{{token}}
+Content-Type: application/json
+
+###envoyer un message
+POST {{host}}/user
+Authorization:{{token}}
+Content-Type: application/json
+
+{
+  "text": "yolo",
+  "hook": "T03FENZNZML/B03FR81F24S/UOFZQsE9p0lIJnfIN0fbYmD4"
+}
+
