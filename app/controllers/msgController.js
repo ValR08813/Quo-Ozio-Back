@@ -10,7 +10,7 @@ const ouke = 'T03FENZNZML/B03FR81F24S/UOFZQsE9p0lIJnfIN0fbYmD4';
 module.exports = {
 
 
-    saveMsg: async (request, response) => {
+    saveAndSendMsg: async (request, response) => {
         try {
 
             const msg = request.body.msg;
@@ -18,18 +18,20 @@ module.exports = {
             const userId = request.userId;
             const date = Math.round(new Date().getTime() / 1000);
             console.log('date', date);
-            
+
             const instance = new Message(request.body);
 
             const msgSaved = await instance.addMsg(msg, date, userId);
+            const msgSent = await instance.sendMsg(userId);
 
 
 
-            return response.status(201).json(`Message "${msg}" ajouté`);
+
+            return response.status(201).json(`Message "${msg}" ajouté et envoyé`);
 
 
 
-            
+
 
         } catch (error) {
             console.log(error);
@@ -49,15 +51,15 @@ module.exports = {
 
             const instance = new Message(request.body);
 
-
-            const msgSent = await instance.sendMsg(msg, hook);
-
-
-            return response.status(201).json(`Message "${msg}" ajouté`);
+            console.log('instance', instance);
+            const msgSent = await instance.sendMsg(userId);
 
 
+            return response.status(201).json(`Message ${msg} envoyé`);
 
-            
+
+
+
 
         } catch (error) {
             console.log(error);
@@ -66,5 +68,5 @@ module.exports = {
 
     }
 
-    
+
 }

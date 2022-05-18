@@ -23,7 +23,7 @@ router.patch('/user', authentification, userController.updateUser);
 
 router.delete('/user', authentification, userController.deleteUser);
 
-router.post('/msg/save', authentification, msgController.saveMsg);
+router.post('/msg/save', authentification, msgController.saveAndSendMsg);
 
 router.post('/msg/send', authentification, msgController.sendMsg);
 

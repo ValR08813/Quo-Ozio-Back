@@ -48,27 +48,37 @@ class Message {
 
     }
 
-    async sendMsg(msg, hook) {
+    async sendMsg(userId) {
 
         try {
+            console.log('this', this);
 
-            const payload={'text': msg}
+            const payload={
+                text: this.msg,
+
+            };
+
+            console.log('payload', payload);
 
             const res = await request({
-                url: `https://hooks.slack.com/services/${hook}`,
+                url: `https://hooks.slack.com/services/${this.hook}`,
                 method: 'POST',
                 body: payload,
                 json: true
             })
+            console.log('res', res);
 
+            return response.status(201);
 
-            return response.status(201).json(res);
+            // return response.status(201).json(payload);
 
         } catch (error) {
             if (error.detail) {
                 console.log('erreur ici')
                 throw new Error(error.detail);
             }
+            console.log('erreur là')
+
             throw new Error(error.message);
         }
 
