@@ -1,0 +1,78 @@
+@host=http://localhost:5050
+@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoyLCJpYXQiOjE2NTI5MDY0NDIsImV4cCI6MTY1MjkyODA0Mn0.U8jRjb9ws5ZaSzVtzYTa9xY0f2HHP_VhtpIH6a5nk-Q
+Authorization:{{token}}
+Content-Type: application/json
+
+
+### get all users
+GET {{host}}/users
+
+### get 1 user from id
+GET {{host}}/user/1
+
+### ajouter un user
+POST {{host}}/signup
+Content-Type: application/json
+
+{
+    "mail": "john@mail.com",
+    "lastname": "win",
+    "firstname": "john",
+    "pseudo": "winjohn",
+    "password":"winjohn12",
+    "password_confirmation": "winjohn12"
+     }
+
+###se connecter
+POST {{host}}/login
+Content-Type: application/json
+
+{
+        "mail": "john@mail.com",
+        "lastname": "",
+        "firstname": "",
+        "pseudo": "",
+        "password": "winjohn12"
+    }
+
+### update user
+PATCH {{host}}/user
+Authorization:{{token}}
+Content-Type: application/json
+
+{
+  "mail": "bobby@mail.com",
+    "lastname": "lose",
+    "firstname": "bob",
+    "pseudo": "losybob",
+    "password":"losybob124",
+    "password_confirmation": "losybob124"
+}
+
+### supprimer son compte
+DELETE {{host}}/user
+Authorization:{{token}}
+Content-Type: application/json
+
+###enregistrer un message
+POST {{host}}/msg/save
+Authorization:{{token}}
+Content-Type: application/json
+
+{
+  "msg": "hoy hablamos...",
+    "hook": "T03FENZNZML/B03G07MDWAD/w4SnLAs9iWrVCbyOydVvclVI"
+
+}
+
+###envoyer un message
+POST {{host}}/msg/send
+Authorization:{{token}}
+Content-Type: application/json
+
+{
+  "msg": "Salut comment ça va ?",
+  "hook": "T03FENZNZML/B03G07MDWAD/w4SnLAs9iWrVCbyOydVvclVI"
+  
+}
+
