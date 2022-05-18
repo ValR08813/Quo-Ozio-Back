@@ -48,7 +48,6 @@ module.exports = {
             const password = request.body.password;
             const user = await User.findByMail(mail, password);
             const token = jwt.makeToken(user.id);
-
             // Envoyer le token généré dans le header de la réponse
             return response.setHeader('Authorization', 'Bearer ' + token).status(200).json(user);
 

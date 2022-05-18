@@ -100,6 +100,8 @@ class User {
                     this.id = rows[0].id;
                     delete this.password;
                     delete this.password_confirmation;
+                    console.log(Date.now)
+;
                     return this;
 
                 } else {

@@ -1,5 +1,5 @@
 @host=http://localhost:5050
-@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjo3LCJpYXQiOjE2NTI4MjA2NjIsImV4cCI6MTY1Mjg0MjI2Mn0.F3e4xwrSWX9FNFmbMhHExnntRJtfbBtRqUaYjURQ0dU
+@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxLCJpYXQiOjE2NTI4NjQzNTYsImV4cCI6MTY1Mjg4NTk1Nn0.ZjeyFQXV9LEgKiKGCTgtQCLUXivUaskFxklW_gg_JKU
 Authorization:{{token}}
 Content-Type: application/json
 
@@ -54,13 +54,23 @@ DELETE {{host}}/user
 Authorization:{{token}}
 Content-Type: application/json
 
+###enregistrer un message
+POST {{host}}/msg/save
+Authorization:{{token}}
+Content-Type: application/json
+
+{
+  "msg": "yolo"  
+}
+
 ###envoyer un message
-POST {{host}}/user
+POST {{host}}/msg/send
 Authorization:{{token}}
 Content-Type: application/json
 
 {
   "text": "yolo",
-  "hook": "T03FENZNZML/B03FR81F24S/UOFZQsE9p0lIJnfIN0fbYmD4"
+  "hook": "T03FENZNZML/B03G07MDWAD/w4SnLAs9iWrVCbyOydVvclVI"
+  
 }
 

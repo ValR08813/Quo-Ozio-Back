@@ -3,44 +3,33 @@ const Message = require('../models/msgModel');
 
 
 
-const hook = 'T03FENZNZML/B03FR81F24S/UOFZQsE9p0lIJnfIN0fbYmD4';
+const ouke = 'T03FENZNZML/B03FR81F24S/UOFZQsE9p0lIJnfIN0fbYmD4';
 
 
 
 module.exports = {
 
 
-    sendMsg: async (request, response) => {
+    saveMsg: async (request, response) => {
         try {
 
             const msg = request.body.msg;
             const hook = request.body.hook;
             const userId = request.userId;
-            const date = Date.now();
+            const date = Math.round(new Date().getTime() / 1000);
+            console.log('date', date);
+            
+            const instance = new Message(request.body);
 
-            const instance = new Message(msg, userId, date);
+            const msgSaved = await instance.addMsg(msg, date, userId);
 
-            const msgString = await instance.addMsg(userId, msg);
 
 
             return response.status(201).json(`Message "${msg}" ajouté`);
 
 
 
-            const slackBody = {
-                text:msg
-
-            };
-
-            request({
-                url: `https://hooks.slack.com/services/${hook}`,
-                method: 'POST', 
-                body: slackBody,
-                json: true
-            })
-           
-
-            return response.status(201).json(msg);
+            
 
         } catch (error) {
             console.log(error);
@@ -48,4 +37,34 @@ module.exports = {
         }
 
     },
+
+    sendMsg: async (request, response) => {
+        try {
+
+            const msg = request.body.msg;
+            const hook = request.body.hook;
+            const userId = request.userId;
+            const date = Math.round(new Date().getTime() / 1000);
+            console.log('date', date);
+
+            const instance = new Message(request.body);
+
+
+            const msgSent = await instance.sendMsg(msg, hook);
+
+
+            return response.status(201).json(`Message "${msg}" ajouté`);
+
+
+
+            
+
+        } catch (error) {
+            console.log(error);
+            response.status(500).json(error.message);
+        }
+
+    }
+
+    
 }
